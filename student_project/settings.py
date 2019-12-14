@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'studentapp_one',
 ]
 
 MIDDLEWARE = [
@@ -74,11 +76,16 @@ WSGI_APPLICATION = 'student_project.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("PROJECT_ONE_DB_NAME", "project_one"),
+        "USER": os.getenv("PROJECT_ONE_DB_USER", "project_one_rw"),
+        "PASSWORD": os.getenv("PROJECT_ONE_DB_PASSWORD", ""),
+        "HOST": os.getenv("PROJECT_ONE_DB_HOST", "localhost"),
+        "PORT": int(os.getenv("PROJECT_ONE_DB_PORT", "5432")),
     }
 }
+
 
 
 # Password validation
