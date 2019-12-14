@@ -6,6 +6,15 @@ from django.shortcuts import render, HttpResponse
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
+# rest_framework imports
+from rest_framework import viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework import status
+
+# app level imports 
+from studentapp_one.serializers import StudentSerializer
+from studentapp_one.models import Student
 
 # Create your views here.
 @csrf_exempt 
@@ -26,3 +35,7 @@ class class_view(View):
 
     def get(self, request):
         return HttpResponse("Class based")
+
+class StudentView(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentSerializer

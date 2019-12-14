@@ -17,9 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# restframework imports
+from rest_framework import routers
+
 # app level imports 
+from studentapp_one.views import StudentView
+
+router = routers.SimpleRouter()
+
+router.register('Student', StudentView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('studentapp_one.urls'))
+    path('',include('studentapp_one.urls')),
+    path('',include(router.urls))
 ]
