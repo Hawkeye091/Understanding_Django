@@ -42,13 +42,12 @@ class StudentView(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
-    @action(methods=['GET', 'POST'], detail=False, url_path="good_students")
+    @action(methods=['GET'], detail=False, url_path="good_students")
     def good_students(self, request):
         good_students = Student.objects.filter(marks__maths__gte=70)
         serializer = StudentSerializer(good_students, many=True)
         return Response(serializer.data, status.HTTP_200_OK)
-        
-
+    
 
 class TeacherView(viewsets.ModelViewSet):
     queryset = Teacher.objects.all()
@@ -65,9 +64,9 @@ class TeacherView(viewsets.ModelViewSet):
                 department=validated_data['department'],
                 salary=validated_data['salary'],
             )
-            return HttpResponse(validated_data, status=status.HTTP_201_CREATED)
+            return Response(validated_data, status=status.HTTP_201_CREATED)
         else:
-            return HttpResponse(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     @action(methods=['PUT'], detail=True, url_path="update_teacher_salary")
     def update_teacher_salary(self, request, *args, **kwargs):
@@ -81,3 +80,5 @@ class TeacherView(viewsets.ModelViewSet):
             return Response(validated_data, status=status.HTTP_200_OK)
         else:
             return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
+        
+    
