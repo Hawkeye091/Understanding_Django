@@ -11,3 +11,12 @@ class Student(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+class Teacher(models.Model):
+    name = models.CharField(max_length=64, null=True)
+    address = models.TextField(null=True)
+    department = models.CharField(max_length=64, null=True)
+    salary = models.FloatField(null=True)
+
+    def __str__(self):
+        return str(self.name)

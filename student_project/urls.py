@@ -21,11 +21,12 @@ from django.urls import path, include
 from rest_framework import routers
 
 # app level imports 
-from studentapp_one.views import StudentView
+from studentapp_one.views import StudentView, TeacherView
 
 router = routers.SimpleRouter()
 
 router.register('Student', StudentView)
+router.register('Teacher', TeacherView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
