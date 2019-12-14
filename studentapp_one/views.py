@@ -14,7 +14,7 @@ def func_view(request):
     A function based view
     """
     if request.method == "GET":
-        return HttpResponse("Hello")
+        return HttpResponse("Function based")
     if request.method == "POST":
         return HttpResponse(request.body)
 
@@ -23,3 +23,6 @@ class class_view(View):
     """
     A class based view
     """
+
+    def get(self, request):
+        return HttpResponse("Class based")
