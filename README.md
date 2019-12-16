@@ -1,5 +1,5 @@
 # Understanding Django
-Look through the commits to get a basic idea for understanding django for creating APIs
+Look through the commits to get a basic idea for understanding django for creating APIs.
 
 ## Setting up postgres
 
@@ -32,7 +32,7 @@ CREATE DATABASE project_one with owner 'project_one_rw';
 
 ## Cloning this github project
 
-Clone this github project to your local
+Clone this github project to your local.
 
 ```
 git clone https://github.com/Hawkeye091/Codeasylums_Django.git
@@ -40,7 +40,7 @@ git clone https://github.com/Hawkeye091/Codeasylums_Django.git
 
 ## Change directory and enter student_project
 
-Enter the project directory
+Enter the project directory.
 
 ```
 cd student_project
@@ -67,7 +67,7 @@ Creating a virtual environment for your project.
 virtualenv --python=$(which python3) student_project_env
 ```
 
-Using/activating a virtual environment
+Using/activating a virtual environment.
 
 ```
 source student_project_env/bin/activate
